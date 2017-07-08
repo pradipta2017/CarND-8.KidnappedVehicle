@@ -50,10 +50,10 @@ int main()
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
-
+	  //cout << "message begin1:pradipta" << endl;//pradipta delete
     if (length && length > 2 && data[0] == '4' && data[1] == '2')
     {
-
+		//cout << "message begin2:pradipta" << endl; //pradipta delete
       auto s = hasData(std::string(data));
       if (s != "") {
       	
@@ -143,7 +143,7 @@ int main()
           auto msg = "42[\"best_particle\"," + msgJson.dump() + "]";
           // std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
-	  
+			
         }
       } else {
         std::string msg = "42[\"manual\",{}]";
@@ -178,7 +178,8 @@ int main()
   });
 
   int port = 4567;
-  if (h.listen(port))
+  //if (h.listen(port))
+  if (h.listen("127.0.0.1", port))
   {
     std::cout << "Listening to port " << port << std::endl;
   }
